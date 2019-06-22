@@ -5,10 +5,10 @@ BIN_NAME=crit
 VERSION := $(shell grep "const Version " version/version.go | sed -E 's/.*"(.+)"$$/\1/')
 GIT_COMMIT=$(shell git rev-parse HEAD)
 GIT_DIRTY=$(shell test -n "`git status --porcelain`" && echo "+CHANGES" || true)
-BUILD_DATE=$(shell date '+%Y-%m-%d-%H:%M:%S')
+BUILD_DATE=$(shell date '+%Y-%m-%d~%H:%M:%S')
 IMAGE_NAME := "bopo/crit"
 
-default: test
+default: help
 
 help:
 	@echo 'Management commands for crit:'
